@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario en tonos pastel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Formulario</h1>
+        <style>
+            /* Estilo del encabezado */
+            header {
+                background-color: #ffd1dc; /* Fondo rosa pastel */
+                color: #333;
+                padding: 20px 0;
+                text-align: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+                border-bottom: 4px solid #ffb3ba; /* Borde inferior rosa más claro */
+                background: linear-gradient(45deg, #ffd1dc, #ffe6e6); /* Gradiente pastel */
+                transition: background 0.5s ease;
+            }
+            header h1 {
+                margin: 0;
+                font-size: 2.5em;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                font-weight: bold;
+                color: #ff8b94; /* Color pastel para el título */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil */
+            }
+        </style>
+    </header>
+
+    <section id="contacto">
+        <h2>Formulario para Mateo Martínez</h2>
+        <p>Por favor, llena el siguiente formulario:</p>
+        <form action="https://formsubmit.co/matemartinezalfaro@gmail.com" method="post">
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="telefono">Número de teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="mensaje">¿Alguna pregunta?</label>
+            <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+
+        <!-- Contenedor para el mensaje de agradecimiento -->
+        <div id="mensajeGracias" style="display: none; margin-top: 20px;">
+            <h3 id="mensajePersonalizado"></h3>
+        </div>
+
+        <style>
+            /* Fondo general pastel */
+            body {
+                background-color: #fff0f5; /* Rosa claro pastel */
+                font-family: Arial, sans-serif;
+            }
+
+            /* Estilo para el formulario y su contenedor */
+            #contacto {
+                padding: 40px;
+                background-color: #fbeaed; /* Fondo rosa muy claro */
+                text-align: center;
+                margin-top: 30px;
+                border-top: 4px solid #ffb3ba; /* Borde superior pastel */
+                border-radius: 10px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            #contacto h2 {
+                margin-bottom: 15px;
+                color: #ff8b94; /* Tono pastel para el título */
+                font-size: 2.2em;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            }
+
+            #contacto p {
+                margin-bottom: 25px;
+                color: #333;
+                font-size: 1.2em;
+            }
+
+            #contacto form {
+                display: inline-block;
+                text-align: left;
+                max-width: 450px;
+                width: 100%;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 12px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+
+            #contacto label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+                color: #ff8b94;
+            }
+
+            #contacto input[type="text"],
+            #contacto input[type="tel"],
+            #contacto textarea {
+                width: 100%;
+                padding: 12px;
+                margin-bottom: 20px;
+                border: 2px solid #ffb3ba;
+                border-radius: 8px;
+                box-sizing: border-box;
+                font-size: 15px;
+                transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            #contacto input[type="text"]:focus,
+            #contacto input[type="tel"]:focus,
+            #contacto textarea:focus {
+                border-color: #ff8b94;
+                outline: none;
+                box-shadow: 0 0 8px rgba(255, 182, 193, 0.4);
+            }
+
+            #contacto button {
+                background-color: #ff8b94;
+                color: white;
+                padding: 12px 24px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 16px;
+                width: 100%;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            #contacto button:hover {
+                background-color: #ff6f61;
+                box-shadow: 0 4px 10px rgba(255, 182, 193, 0.3);
+            }
+
+            /* Mensaje de agradecimiento */
+            #mensajeGracias {
+                background-color: #ffcccb; /* Fondo rojo pastel */
+                border: 2px solid #ff8b94;
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                font-size: 1.2em;
+                color: #333;
+                font-weight: bold;
+                display: none;
+            }
+        </style>
+    </section>
+
+    <script>
+        // Capturar el evento de envío del formulario
+        document.getElementById('miFormulario').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío por defecto del formulario
+
+            // Obtener el nombre del usuario
+            var nombreUsuario = document.getElementById('nombre').value;
+
+            // Mostrar el mensaje personalizado
+            var mensaje = "Muchas gracias por llenar este formulario, " + nombreUsuario + ". Le enviaremos un mensaje más tarde para seguir la charla con usted.";
+            document.getElementById('mensajePersonalizado').textContent = mensaje;
+
+            // Mostrar el contenedor del mensaje de agradecimiento
+            document.getElementById('mensajeGracias').style.display = 'block';
+
+            // Limpiar el formulario
+            document.getElementById('miFormulario').reset();
+        });
+    </script>
+</body>
+</html>
